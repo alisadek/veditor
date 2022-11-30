@@ -1,0 +1,22 @@
+.homeLayout {
+  display: grid;
+  grid-template-columns: 70px 1.1fr 2.4fr;
+  grid-template-rows: 1.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "navbar upload-file editor"
+    "timeline timeline timeline";
+}
+
+.navbar {
+  grid-area: navbar;
+}
+
+.editor {
+  grid-area: editor;
+}
+
+.timeline {
+  grid-area: timeline;
+}
