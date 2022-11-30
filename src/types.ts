@@ -46,14 +46,14 @@ export type Track<T = Clip | Audio | Image | Text> = {
   Items: T[];
 };
 
-enum PlayState {
+export enum PlayState {
   paused,
   playing,
 }
 export type Timeline = {
-  tracks: Track[];
-  currentTime: number;
-  state: PlayState;
+  _tracks: Track[];
+  _currentTime: number;
+  _state: PlayState;
 };
 
 export type MediaLibrary = any;
