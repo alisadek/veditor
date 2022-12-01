@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 
-type AspectRatio = {
+export type AspectRatio = {
   ratioWidth: number;
   ratioHeight: number;
 };
