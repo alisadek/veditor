@@ -33,17 +33,17 @@ export interface RenderDetails {
   // to be abstracted
   render: () => void;
 }
-export type TrackElement = {
+export type TrackElement<T = Clip | Audio | Image | Text> = {
   id: string;
-  Item: Item;
+  item: T;
   isSelected: boolean;
   start: number;
   duration: number;
 };
 
-export type Track<T = Clip | Audio | Image | Text> = {
+export type Track = {
   id: string;
-  Items: T[];
+  items: TrackElement[];
 };
 
 export enum PlayState {
