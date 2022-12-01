@@ -8,12 +8,34 @@ const useTimeline = create<TimelineStore>((set) => ({
   _tracks: [],
   createTrack: (element: TrackElement): string => {
     const id = _.uniqueId();
-    set(() => ({ _tracks: [{ id, items: [element] }] }));
+    set(({ _tracks }) => ({ _tracks: [..._tracks, { id, items: [element] }] }));
     return id;
   },
   seek: (newTime: number) => set(() => ({ _currentTime: newTime })),
   pause: () => set(() => ({ _state: PlayState.paused })),
   play: () => set(() => ({ _state: PlayState.playing })),
+  addElementToTrack: (element: TrackElement, trackId: string) =>
+    set(({ _tracks }) => ({
+      _tracks: _tracks.map((track) => {
+        if (track.id === trackId) {
+          return { ...track, items: [...track.items, element] };
+        }
+        return track;
+      }),
+    })),
+  removeElementFromTrack: (elementId: string, trackId: string) => {
+    set(({ _tracks }) => ({
+      _tracks: _tracks.map((track) => {
+        if (track.id === trackId) {
+          return {
+            ...track,
+            items: track.items.filter((item) => item.id !== elementId),
+          };
+        }
+        return track;
+      }),
+    }));
+  },
 }));
 
 export default useTimeline;
