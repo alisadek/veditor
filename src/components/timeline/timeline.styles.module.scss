@@ -1,11 +1,32 @@
 .timeline {
   grid-area: timeline;
-  width: 1000px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   color: white;
+  background-color: #202024;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40px 1.9fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "controls controls controls"
+    "tracksArea tracksArea tracksArea"
+    "tracksArea tracksArea tracksArea";
 }
 .flexCol {
   display: flex;
   flex-direction: column;
   height: 300px;
+}
+
+.separator {
+  color: "#fff";
+}
+
+.controls {
+  grid-area: controls;
+  border-bottom: 1px solid #37373a;
+}
+.tracksArea {
+  grid-area: tracksArea;
 }
