@@ -5,7 +5,7 @@ export type AspectRatio = {
   ratioHeight: number;
 };
 
-export type Player = {
+export type Canvas = {
   renderedElements: RenderDetails[];
   aspectRatio: AspectRatio;
   backgroundColorHex: string;
@@ -50,10 +50,14 @@ export enum PlayState {
   paused,
   playing,
 }
+
+export type Player = {
+  state: PlayState;
+};
+
 export type Timeline = {
   _tracks: Track[];
   _currentTime: number;
-  _state: PlayState;
 };
 
 export type MediaLibrary = any;

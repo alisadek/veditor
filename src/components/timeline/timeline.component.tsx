@@ -23,7 +23,6 @@ const Timeline = (props: Props) => {
   };
   const {
     _tracks: tracks,
-    _state: state,
     _currentTime: currentTime,
     seek,
     addElementToTrack,
@@ -44,30 +43,8 @@ const Timeline = (props: Props) => {
   };
   return (
     <div className={styles.timeline}>
-      <button onClick={handleClick}>Create Track</button>
-      <button onClick={addElement}>Add Element</button>
-      <button onClick={deleteElement}>Delete Element</button>
-      <button onClick={() => seekToSecond(0)}>Seek To 0</button>
-      <button onClick={() => seekToSecond(50)}>Seek To 50</button>
-      <div className={styles.flexCol}>
-        {tracks.map((track) => (
-          <div key={track.id}>
-            {track.id}
-            <p>Items:</p>
-            <ul>
-              {track.items.map((item) => (
-                <>
-                  <li>Duration: {item.duration}</li>
-                  <li>Start: {item.start}</li>
-                  <li>Id: {item.id}</li>
-                </>
-              ))}
-            </ul>
-          </div>
-        ))}
-        <p>State: {state}</p>
-        <p>Current Time: {currentTime}</p>
-      </div>
+      <div className={styles.controls}>Controls</div>
+      <div className={styles.tracksArea}>Tracks Area</div>
     </div>
   );
 };

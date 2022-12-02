@@ -1,8 +1,8 @@
-import { AspectRatio, Player, RenderDetails } from "../../../types";
+import { Player } from "../../../types";
 
 type PlayerFunctions = {
-  addToElements: (element: RenderDetails) => void;
-  setAspectRatio: (aspectRatio: AspectRatio) => void;
-  setBackgroundColor: (backgroundColorHex: string) => void;
+  pause: () => void;
+  play: () => void;
 };
+
 export type PlayerStore = Player & PlayerFunctions;

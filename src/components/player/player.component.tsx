@@ -4,8 +4,10 @@ type Props = {};
 
 const Player = (props: Props) => {
   return (
-    <div className={styles.playerContainer}>
-      <div className={styles.player} />
+    <div className={styles.playerToolbar}>
+      <button>Last Track</button>
+      <button>Play/Pause</button>
+      <button>Next Track</button>
     </div>
   );
 };
