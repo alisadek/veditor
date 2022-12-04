@@ -2,25 +2,10 @@ import React from "react";
 import useTimeline from "./store/timeline.store";
 import styles from "./timeline.styles.module.scss";
 import _ from "lodash";
+import { EXAMPLE_TRACK_ELEMENT } from "../../shared/Examples";
 type Props = {};
 
 const Timeline = (props: Props) => {
-  const EXAMPLE_ELEMENT = {
-    duration: 20,
-    start: 0,
-    item: {
-      content: "Ali Sadek",
-      height: 100,
-      isAspectRatioLocked: true,
-      rotationAngle: 0,
-      styles: { color: "#fff" },
-      width: 300,
-      topLeft: 0,
-      render: (() => null)(),
-    },
-    isSelected: false,
-    id: _.uniqueId(),
-  };
   const {
     _tracks: tracks,
     _currentTime: currentTime,
@@ -30,10 +15,10 @@ const Timeline = (props: Props) => {
     createTrack,
   } = useTimeline();
   const handleClick = () => {
-    createTrack(EXAMPLE_ELEMENT);
+    createTrack(EXAMPLE_TRACK_ELEMENT);
   };
   const addElement = () => {
-    addElementToTrack(EXAMPLE_ELEMENT, tracks[0].id);
+    addElementToTrack(EXAMPLE_TRACK_ELEMENT, tracks[0].id);
   };
   const deleteElement = () => {
     removeElementFromTrack(tracks[0].items[0].id, tracks[0].id);
